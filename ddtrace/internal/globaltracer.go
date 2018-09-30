@@ -57,6 +57,9 @@ func (NoopTracer) Inject(context ddtrace.SpanContext, carrier interface{}) error
 // Stop implements ddtrace.Tracer.
 func (NoopTracer) Stop() {}
 
+// ForceFlush implements ddtrace.Tracer.
+func (NoopTracer) ForceFlush() {}
+
 var _ ddtrace.Span = (*NoopSpan)(nil)
 
 // NoopSpan is an implementation of ddtrace.Span that is a no-op.

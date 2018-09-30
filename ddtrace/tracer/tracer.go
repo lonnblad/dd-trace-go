@@ -60,18 +60,21 @@ const (
 // Start starts the tracer with the given set of options. It will stop and replace
 // any running tracer, meaning that calling it several times will result in a restart
 // of the tracer by replacing the current instance with a new one.
-func Start(opts ...StartOption) (s *tracer) {
+func Start(opts ...StartOption) {
 	if internal.Testing {
 		return // mock tracer active
 	}
-	s = newTracer(opts...)
-	internal.SetGlobalTracer(s)
-	return
+	internal.SetGlobalTracer(newTracer(opts...))
 }
 
 // Stop stops the started tracer. Subsequent calls are valid but become no-op.
 func Stop() {
 	internal.SetGlobalTracer(&internal.NoopTracer{})
+}
+
+// ForceFlush forces a flush of data (traces and services) to the agent.
+func ForceFlush() {
+	internal.GetGlobalTracer().ForceFlush()
 }
 
 // Span is an alias for ddtrace.Span. It is here to allow godoc to group methods returning
@@ -318,7 +321,7 @@ func (t *tracer) flush() {
 	t.flushErrors()
 }
 
-// forceFlush forces a flush of data (traces and services) to the agent.
+// ForceFlush forces a flush of data (traces and services) to the agent.
 // Flushes are done by a background task on a regular basis, so you never
 // need to call this manually, mostly useful for testing and debugging.
 func (t *tracer) ForceFlush() {

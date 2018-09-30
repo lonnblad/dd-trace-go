@@ -3,8 +3,8 @@ package dns_test
 import (
 	"fmt"
 
+	dnstrace "github.com/lonnblad/dd-trace-go/contrib/miekg/dns"
 	"github.com/miekg/dns"
-	dnstrace "gopkg.in/DataDog/dd-trace-go.v1/contrib/miekg/dns"
 )
 
 func Example_client() {

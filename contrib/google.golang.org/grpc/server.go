@@ -1,9 +1,9 @@
 package grpc
 
 import (
+	"github.com/lonnblad/dd-trace-go/ddtrace"
 	context "golang.org/x/net/context"
 	"google.golang.org/grpc"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace"
 )
 
 type serverStream struct {

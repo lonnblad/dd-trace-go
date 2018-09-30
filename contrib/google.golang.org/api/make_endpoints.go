@@ -15,8 +15,8 @@ import (
 	"strings"
 	"text/template"
 
+	"github.com/lonnblad/dd-trace-go/contrib/google.golang.org/api/internal"
 	"github.com/yosida95/uritemplate"
-	"gopkg.in/DataDog/dd-trace-go.v1/contrib/google.golang.org/api/internal"
 )
 
 type (
@@ -160,7 +160,7 @@ package api
 import (
 	"regexp"
 
-	"gopkg.in/DataDog/dd-trace-go.v1/contrib/google.golang.org/api/internal"
+	"github.com/lonnblad/dd-trace-go/contrib/google.golang.org/api/internal"
 )
 
 func init() {

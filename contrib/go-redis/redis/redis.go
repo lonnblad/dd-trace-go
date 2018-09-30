@@ -8,9 +8,9 @@ import (
 	"strconv"
 	"strings"
 
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/ext"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/tracer"
+	"github.com/lonnblad/dd-trace-go/ddtrace"
+	"github.com/lonnblad/dd-trace-go/ddtrace/ext"
+	"github.com/lonnblad/dd-trace-go/ddtrace/tracer"
 
 	"github.com/go-redis/redis"
 )
@@ -161,11 +161,15 @@ func cmderToString(cmd redis.Cmder) string {
 	// newer versions that was removed, and this String method which
 	// sometimes returns an error is used instead. By doing a type assertion
 	// we can support both versions.
-	if s, ok := cmd.(interface{ String() string }); ok {
+	if s, ok := cmd.(interface {
+		String() string
+	}); ok {
 		return s.String()
 	}
 
-	if s, ok := cmd.(interface{ String() (string, error) }); ok {
+	if s, ok := cmd.(interface {
+		String() (string, error)
+	}); ok {
 		str, err := s.String()
 		if err == nil {
 			return str

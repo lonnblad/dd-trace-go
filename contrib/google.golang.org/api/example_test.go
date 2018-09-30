@@ -3,8 +3,8 @@ package api_test
 import (
 	"fmt"
 
+	apitrace "github.com/lonnblad/dd-trace-go/contrib/google.golang.org/api"
 	cloudresourcemanager "google.golang.org/api/cloudresourcemanager/v1"
-	apitrace "gopkg.in/DataDog/dd-trace-go.v1/contrib/google.golang.org/api"
 )
 
 func Example() {

@@ -1,13 +1,13 @@
 // Package kubernetes provides functions to trace k8s.io/client-go (https://github.com/kubernetes/client-go).
-package kubernetes // import "gopkg.in/DataDog/dd-trace-go.v1/contrib/k8s.io/client-go/kubernetes"
+package kubernetes // import "github.com/lonnblad/dd-trace-go/contrib/k8s.io/client-go/kubernetes"
 
 import (
 	"net/http"
 	"strings"
 
-	httptrace "gopkg.in/DataDog/dd-trace-go.v1/contrib/net/http"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/ext"
+	httptrace "github.com/lonnblad/dd-trace-go/contrib/net/http"
+	"github.com/lonnblad/dd-trace-go/ddtrace"
+	"github.com/lonnblad/dd-trace-go/ddtrace/ext"
 )
 
 const (

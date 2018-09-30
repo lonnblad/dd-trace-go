@@ -5,11 +5,11 @@ import (
 	"net/http/httptest"
 	"testing"
 
+	"github.com/lonnblad/dd-trace-go/ddtrace"
+	"github.com/lonnblad/dd-trace-go/ddtrace/ext"
+	"github.com/lonnblad/dd-trace-go/ddtrace/mocktracer"
+	"github.com/lonnblad/dd-trace-go/ddtrace/tracer"
 	"github.com/stretchr/testify/assert"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/ext"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/mocktracer"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/tracer"
 )
 
 func TestRoundTripper(t *testing.T) {

@@ -3,8 +3,9 @@
 package httputil
 
 import (
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace"
 	"net/http"
+
+	"github.com/lonnblad/dd-trace-go/ddtrace"
 )
 
 // wrapResponseWriter wraps an underlying http.ResponseWriter so that it can

@@ -6,10 +6,10 @@ import (
 	"database/sql/driver"
 	"fmt"
 
-	"gopkg.in/DataDog/dd-trace-go.v1/contrib/database/sql/internal"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/ext"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/tracer"
+	"github.com/lonnblad/dd-trace-go/contrib/database/sql/internal"
+	"github.com/lonnblad/dd-trace-go/ddtrace"
+	"github.com/lonnblad/dd-trace-go/ddtrace/ext"
+	"github.com/lonnblad/dd-trace-go/ddtrace/tracer"
 )
 
 var _ driver.Driver = (*tracedDriver)(nil)

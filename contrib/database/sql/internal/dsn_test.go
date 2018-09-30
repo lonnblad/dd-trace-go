@@ -3,8 +3,8 @@ package internal
 import (
 	"testing"
 
+	"github.com/lonnblad/dd-trace-go/ddtrace/ext"
 	"github.com/stretchr/testify/assert"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/ext"
 )
 
 func TestParseDSN(t *testing.T) {

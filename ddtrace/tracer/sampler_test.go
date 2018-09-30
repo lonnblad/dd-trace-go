@@ -3,7 +3,7 @@ package tracer
 import (
 	"testing"
 
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/internal"
+	"github.com/lonnblad/dd-trace-go/ddtrace/internal"
 
 	"github.com/stretchr/testify/assert"
 )

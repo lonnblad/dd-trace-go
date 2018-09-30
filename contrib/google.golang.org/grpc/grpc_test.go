@@ -7,9 +7,9 @@ import (
 	"testing"
 	"time"
 
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/ext"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/mocktracer"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/tracer"
+	"github.com/lonnblad/dd-trace-go/ddtrace/ext"
+	"github.com/lonnblad/dd-trace-go/ddtrace/mocktracer"
+	"github.com/lonnblad/dd-trace-go/ddtrace/tracer"
 
 	"github.com/stretchr/testify/assert"
 	context "golang.org/x/net/context"

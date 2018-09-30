@@ -5,10 +5,10 @@ import (
 	"testing"
 	"time"
 
+	"github.com/lonnblad/dd-trace-go/ddtrace/ext"
+	"github.com/lonnblad/dd-trace-go/ddtrace/mocktracer"
 	"github.com/miekg/dns"
 	"github.com/stretchr/testify/assert"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/ext"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/mocktracer"
 )
 
 func TestDNS(t *testing.T) {

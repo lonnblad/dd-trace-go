@@ -1,6 +1,6 @@
 package mux
 
-import "gopkg.in/DataDog/dd-trace-go.v1/ddtrace"
+import "github.com/lonnblad/dd-trace-go/ddtrace"
 
 type routerConfig struct {
 	serviceName string

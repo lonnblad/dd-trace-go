@@ -7,9 +7,9 @@ import (
 	"strconv"
 	"time"
 
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/ext"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/internal"
+	"github.com/lonnblad/dd-trace-go/ddtrace"
+	"github.com/lonnblad/dd-trace-go/ddtrace/ext"
+	"github.com/lonnblad/dd-trace-go/ddtrace/internal"
 )
 
 var _ ddtrace.Tracer = (*tracer)(nil)
@@ -60,11 +60,13 @@ const (
 // Start starts the tracer with the given set of options. It will stop and replace
 // any running tracer, meaning that calling it several times will result in a restart
 // of the tracer by replacing the current instance with a new one.
-func Start(opts ...StartOption) {
+func Start(opts ...StartOption) (s *tracer) {
 	if internal.Testing {
 		return // mock tracer active
 	}
-	internal.SetGlobalTracer(newTracer(opts...))
+	s = newTracer(opts...)
+	internal.SetGlobalTracer(s)
+	return
 }
 
 // Stop stops the started tracer. Subsequent calls are valid but become no-op.
@@ -319,7 +321,7 @@ func (t *tracer) flush() {
 // forceFlush forces a flush of data (traces and services) to the agent.
 // Flushes are done by a background task on a regular basis, so you never
 // need to call this manually, mostly useful for testing and debugging.
-func (t *tracer) forceFlush() {
+func (t *tracer) ForceFlush() {
 	done := make(chan struct{})
 	t.flushAllReq <- done
 	<-done

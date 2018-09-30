@@ -5,7 +5,7 @@ import (
 	"database/sql/driver"
 	"errors"
 
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/tracer"
+	"github.com/lonnblad/dd-trace-go/ddtrace/tracer"
 )
 
 var _ driver.Stmt = (*tracedStmt)(nil)
